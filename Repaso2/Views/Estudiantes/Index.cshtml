@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Repaso2.Models.Estudiante>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Estudiantes UDLA</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hobbies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaModificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TieneBeca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carrera)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hobbies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaModificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TieneBeca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carrera.Nombre)
+            </td>
+            <td>
+                <a class ="btn btn-info" asp-action="Edit" asp-route-id="@item.BannerId">Edit</a> |
+                <a class="btn btn-primary" asp-route-id="@item.BannerId">Details</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.BannerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
